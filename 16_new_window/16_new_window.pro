@@ -16,13 +16,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dashboard.cpp \
     main.cpp \
     login.cpp
 
 HEADERS += \
+    dashboard.h \
     login.h
 
 FORMS += \
+    dashboard.ui \
     login.ui
 
 # Default rules for deployment.

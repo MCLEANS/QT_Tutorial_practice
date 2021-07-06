@@ -36,12 +36,12 @@ public:
     QGridLayout *gridLayout;
     QLabel *label_logo;
     QSpacerItem *verticalSpacer_2;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QFormLayout *formLayout;
     QLabel *label;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
-    QPushButton *pushButton;
+    QLineEdit *lineEdit_username;
+    QLineEdit *lineEdit_password;
+    QPushButton *pushButton_login;
     QLabel *label_2;
     QSpacerItem *verticalSpacer;
     QMenuBar *menubar;
@@ -74,32 +74,33 @@ public:
         gridLayout->addItem(verticalSpacer_2, 1, 0, 1, 1);
 
         splitter->addWidget(gridLayoutWidget);
-        widget = new QWidget(splitter);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        formLayout = new QFormLayout(widget);
+        layoutWidget = new QWidget(splitter);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        formLayout = new QFormLayout(layoutWidget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label);
 
-        lineEdit = new QLineEdit(widget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit_username = new QLineEdit(layoutWidget);
+        lineEdit_username->setObjectName(QString::fromUtf8("lineEdit_username"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit);
+        formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_username);
 
-        lineEdit_2 = new QLineEdit(widget);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_password = new QLineEdit(layoutWidget);
+        lineEdit_password->setObjectName(QString::fromUtf8("lineEdit_password"));
+        lineEdit_password->setEchoMode(QLineEdit::Password);
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_2);
+        formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_password);
 
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton_login = new QPushButton(layoutWidget);
+        pushButton_login->setObjectName(QString::fromUtf8("pushButton_login"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, pushButton);
+        formLayout->setWidget(3, QFormLayout::FieldRole, pushButton_login);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_2);
@@ -108,7 +109,7 @@ public:
 
         formLayout->setItem(0, QFormLayout::FieldRole, verticalSpacer);
 
-        splitter->addWidget(widget);
+        splitter->addWidget(layoutWidget);
 
         horizontalLayout->addWidget(splitter);
 
@@ -131,7 +132,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         label_logo->setText(QString());
         label->setText(QApplication::translate("MainWindow", "User Name", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "Login", nullptr));
+        pushButton_login->setText(QApplication::translate("MainWindow", "Login", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "Password", nullptr));
     } // retranslateUi
 
